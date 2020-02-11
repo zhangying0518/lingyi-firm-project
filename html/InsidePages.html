@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+		<!--让网页更好的去适应移动端-->
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<!--禁止浏览器解码添加广告-->
+		<meta name="description" content="字体">
+		<!--告诉搜索引擎你的网站主要内容。-->
+		<meta name="keywords" content="企锵锵" />
+		<!--搜索关键字-->
+		<title>企锵锵-企业服务提供商</title>
+		<link rel="Shortcut Icon" href="../logo.ico" />
+		<link type="text/css" href="../css/Publiccss/bootstrap.css" rel="stylesheet" />
+		<!--bootstrap-->
+		<link type="text/css" href="../css/Pagecss/InsidePages.css" rel="stylesheet" />
+		<!--内页-->
+		<link type="text/css" href="../css/Pagecss/briefIntroduction.css" rel="stylesheet" />
+		<link type="text/css" href="../css/Publiccss/icon.css" rel="stylesheet" />
+		<link type="text/css" href="../css/Pagecss/join.css" rel="stylesheet" />
+		<!--加入我们-->
+		<link type="text/css" href="../css/Publiccss/public.css" rel="stylesheet" />
+		<link type="text/css" href="../css/Pagecss/problem.css" rel="stylesheet" />
+		<link type="text/css" href="../css/Pagecss/invoice.css" rel="stylesheet" />
+		<link type="text/css" href="../css/Pagecss/newpeople.css" rel="stylesheet" />
+		<link type="text/css" href="../css/Pagecss/contact.css" rel="stylesheet" />
+		<style>
+			.none {
+            display: none;
+        }
+    </style>
+	</head>
+	<body>
+		<!--PC端begin-->
+		<!--顶部-->
+		<div id="head" class="head"></div>
+		<div class="body body_pc body">
+			<!--内容-->
+			<div class="content">
+				<div class="container">
+					<div class="content_top">
+						<ul>
+							<li><a href="index.html">首页</a></li>
+							<li>></li>
+							<li><a href="javacript:void(0);">全部分类</a></li>
+							<li>></li>
+							<li><a class="fu_a" href="javacript:void(0);"></a></li>
+						</ul>
+					</div>
+					<div class="row">
+						<div class="col-md-2 col-lg-2 col-sm-2 content_left">
+							<div class="row content_left_row ">
+							</div>
+						</div>
+						<div class="col-md-1= col-lg-1 col-sm-1"></div>
+						<!--右边内容-->
+						<div class="col-md-9 col-lg9 col-sm-9 content_right" id="content_right">
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!--底部-->
+			<div id="root" class="root"></div>
+		</div>
+		<!--PC端end-->
+		<!--移动端begin-->
+		<div id="siteLoading" class="body_Ipone loading">
+			<!--移动端页面初始加载的动画-->
+			<div id="loading-center">
+				<div id="loading-center-absolute">
+					<div class="object" id="object_one"></div>
+					<div class="object" id="object_two"></div>
+					<div class="object" id="object_three"></div>
+					<div class="object" id="object_four"></div>
+				</div>
+			</div>
+		</div>
+		<script id="left_menu_templete" type="text/template">
+			<div class="col-md-12 col-lg-12 col-sm-12" id="{{id}}" data-url="{{url}}">
+				<a href="javacript:void(0);">
+					<img src="../img/Pageimg/InsidePages/{{img}}.png" class="grayPic" />
+					<img src="../img/Pageimg/InsidePages/{{img}}1.png" class="whitePic" />
+					{{name}}
+				</a>
+			</div>
+		</script>
+		<!--移动端end-->
+		<script src="../js/Pulicjs/jquery-3.4.1.min.js" charset="utf-8"></script>
+		<!--jquery-->
+		<script src="../js/Pulicjs/bootstrap.min.js" charset="utf-8"></script>
+		<!--bootstrap-->
+		<script src="../js/Pagejs/style.js"></script>
+
+		<script src="http://api.map.baidu.com/api?v=2.0&ak=zeoYxLzh9bzns3L2QuD2GAQ0oeN6tds7"></script>
+		<script src="../js/Pulicjs/public.js"></script>
+		<script src="../js/Pagejs/join.js"></script>
+		<script src="../js/Pagejs/newpeople.js"></script>
+		<script src="../js/Pagejs/problem.js"></script>
+		<script type="text/javascript">
+			var menuArr = [{
+					id: "m1",
+					name: "公司简介",
+					url: "briefIntroduction.html",
+					img: "firm",
+				},
+				{
+					id: "m2",
+					name: "加入我们",
+					url: "join.html",
+					img: "jiaru"
+				},
+				{
+					id: "m3",
+					name: "联系方式",
+					url: "contact.html",
+					img: "lianxi"
+				},
+				{
+					id: "m4",
+					name: "新手帮助",
+					url: "newpeople.html",
+					img: "xinshou"
+				},
+				{
+					id: "m5",
+					name: "常见问题",
+					url: "problem.html",
+					img: "wenti"
+				},
+				{
+					id: "m6",
+					name: "发票工具",
+					url: "invoice.html",
+					img: "fapiao"
+				}
+			];
+			var initMenu = function() {
+				//left内容
+				var menuHtmlArr = [];
+				console.log("menuHtmlArr", menuHtmlArr)
+				for (var i = 0; i < menuArr.length; i++) {
+					var html = $("#left_menu_templete").html();
+					for (var key in menuArr[i]) {
+						var reg = new RegExp("{{" + key + "}}", "g");
+						html = html.replace(reg, menuArr[i][key] || "");
+					}
+					menuHtmlArr.push(html);
+				}
+				// console.log(menuHtmlArr.join(""));
+				$(".content_left_row").html(menuHtmlArr.join(""));
+
+				$(".content_left_row div").on("click", function() {
+					var id = $(this).attr("id");
+					var index = $(this).index() // 获取索引
+					sessionStorage.setItem("itemBox", index); // 存储索引
+					checkMenu(id);
+
+				})
+			}
+			var load = {
+				briefIntroduction: function() {},
+				join: function() {
+					joinData();
+				},
+				contact: function() {},
+				newpeople: function() {
+					newpeopleData();
+				},
+				problem: function() {
+					problemData();
+				},
+				invoice: function() {}
+			}
+			var checkMenu = function(id) {
+				var sessionMenuID = (sessionStorage.getItem("ckMenu") || "");
+				console.log("sessionStorage", sessionMenuID);
+				console.log("id", (id || ""));
+				if ((id || "").length == 0) {
+					if (sessionMenuID.length != 0)
+						id = sessionMenuID;
+					else {
+						var paramObj = GetUrlParam();
+						id = paramObj.menu || menuArr[0].id;
+					}
+				}
+				// console.log("vali_id",id);
+				sessionStorage.setItem("ckMenu", id);
+				var url = $("#" + id).attr("data-url");
+				$(".content_left_row div").removeClass("content_left_bei");
+				$("#" + id).addClass("content_left_bei");
+				// $(".content_right").load(url + " #accordion");
+
+				$(".content_left_row div").val($("#" + id).text()); //点击取值
+				$(".fu_a").html($("#" + id).text()); //赋值
+
+				$(".content_right").load(url, function() {
+					var key = url.split('.')[0];
+					console.log("lalal", url, key);
+					if (load[url.split('.')[0]] != "undefined")
+						load[key]();
+				});
+			}
+			//返回当前URL地址栏中的参数-返回对象
+			var GetUrlParam = function() {
+				var arr = window.location.search.substring(1, window.location.length).split("&");
+				var obj = {};
+				arr.forEach((val, i) => {
+					var valArr = val.split("=");
+					obj[valArr[0]] = valArr[1] || "";
+				});
+				return obj;
+			}
+			$(function() {
+				initMenu(); //初始化菜单
+				checkMenu(); //选中
+			})
+		</script>
+	</body>
+</html>

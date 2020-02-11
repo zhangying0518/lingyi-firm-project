@@ -1,0 +1,57 @@
+/* 上面 */
+.content_right_blue {
+	display: flex;
+	justify-content: space-between;
+	height: 135px;
+	width: 88%;
+	margin: 0 55px;
+	border-bottom: 1px solid #dbebf8; 
+}
+.contentHelp{
+	line-height: 165px;
+	font-size: 30px;
+	color: #029fae;
+	font-weight: bold;
+}
+.contentZixun{
+	width: 170px;
+	height: 50px;
+	margin-top: 48px;
+	color: #fff;
+	font-size: 18px;
+	background: url(../../img/Pageimg/InsidePages/beijing.png) no-repeat;
+	background-size: 100% 100%;
+	line-height: 50px;
+	text-align: center;
+	position: relative;
+}
+.icon-xinxi{
+	color: #fff;
+	font-size: 20px;
+	position: absolute;
+	top: 2px;
+	left: 24px;
+}
+/* 下面 */
+.newMain {
+	font-size: 16px;
+	padding: 0 55px;
+	margin-bottom: 60px;
+}
+.newItem {
+	border-bottom: 1px solid #dbebf8;
+}
+/* 问 */
+.newItemQues {
+	color: #666666;
+	font-weight: bold;
+	padding-top: 15px;
+	padding-bottom: 5px;
+}
+/* 答 */
+.newItemAns {
+	color: #b3b3b3;
+	line-height: 25px;
+	padding-bottom: 15px;
+
+}

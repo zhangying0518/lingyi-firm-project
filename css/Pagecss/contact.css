@@ -1,0 +1,52 @@
+.contactWay{
+	height: 154px;
+	background: url(../../img/Pageimg/InsidePages/beijing.png) no-repeat;
+	background-size: 100% 100%;
+	color: #fff;
+	padding: 25px 55px 10px;
+}
+.contactWay p{
+	line-height: 15px;
+	font-size: 16px;
+}
+.contactWay p:nth-child(1){
+	line-height: 40px;
+	font-size: 20px;
+	font-weight: bold;
+}
+.contactCode{
+	display: flex;
+	justify-content: space-around;	
+	margin-top: 10px;
+	margin-top: 5px;
+}
+.contactCode div{
+	width: 78px;
+	height: 115px;
+}
+.contactCode p{
+	font-size: 14px;
+	text-align: center;
+	line-height: 35px;
+}
+.contactCode .tu{
+	width: 78px;
+	height: 80px;
+	background: #fff;
+	padding: 3px;
+}
+.contactCode img{
+	width: 100%;
+	height: 100%;
+}
+/* 地图 */
+.contactMap{
+	height: 495px;
+	background: url(../../img/Pageimg/contact/map.png) no-repeat;
+	background-size:101% 100%;
+}
+/* .contactMap img{
+	width: 100%;
+	height: 100%;
+	display: block;
+} */

@@ -1,0 +1,26 @@
+/*右边内容*/
+.content_right {
+	/* height: 570px; */
+	color: #8c8c8c;
+	background-color:#ffffff
+}
+.firm-title{
+	font-size: 25px;
+	text-align: center;
+	margin: 50px 50px 30px;
+	font-weight: 600;
+	color: #009b9a;
+}
+.content_right>p{
+	font-size: 18px;
+	font-weight: bold;
+	padding: 0 30px;
+	color: #8c8c8c;
+	letter-spacing: 1px;
+	margin-bottom: 40px;
+	line-height: 30px;
+}
+
+.content_right>p>span{
+	color: #009b9a;
+}

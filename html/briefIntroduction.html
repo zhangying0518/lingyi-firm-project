@@ -1,0 +1,42 @@
+<div class="row">
+	<div class="col-md-12 col-lg-12 col-sm-12 content_right_hide panel-group" id="accordion">
+		<div class="row">
+			<div class="col-md-12 col-lg12 col-sm-12 content_right">
+				<!-- <p>成立于<span>2019年8月8日</span>,致力于为中小企业提供专业高效的一站式企业服务,助力中小企业顺利跨越从初创到融资的发展过程</p>
+				<p> 企锵锵提供的服务包括<span>基础服务</span>和<span>增值服务</span>两大类,涵盖工商注册,代理记账,人事社保,品牌商标,法律服务,财税扶持,IT代运营,小微贷款,股权投资等九大板块</p>
+				<p>公司创始人之一<span>毕业于复旦大学,清华大学</span>和<span>美国常青藤院校宾大</span>,持有<span>中国和美国纽约州双律师资格</span>
+					曾任以色列英飞尼迪投资集团管理合伙人,管理基金规模数十亿,在TMT,金融科技,人工智能,高端制造等领域,主导数个项目的投资与成功退出</p>
+				<p>公司创始人之二获得<span>上海财经大学企业管理博士学位,美国杜兰大学EMBA</span>曾在摩托罗拉,台湾广达电脑,华硕,和硕集团等担任CFO和CEO等职务,在财务管理和企业经营等方面具有资深经验</p> -->
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	var intHtml = "";
+	$.AjaxGet({
+		url:'introduction ',
+		success: function(res) {
+			var name = res.data.name
+			var introduce = res.data.introduce
+			intHtml +=
+			`
+				<div class="firm-title">${name}</div>
+				${introduce}
+				`
+			$(".content_right").html(intHtml)
+			browserRedirect()
+		}
+	})
+	function browserRedirect() {
+		var sUserAgent = navigator.userAgent.toLowerCase();
+		if (/ipad|iphone|midp|rv:1.2.3.4|ucweb|android|windows ce|windows mobile/.test(sUserAgent)) {
+			//跳转移动端页面
+			// alert('首页ipone端');
+			window.location.href="http://www.baidu.com";
+		} else {
+			//跳转pc端页面
+			console.log('公司简介pc端');
+			// window.location.href="http://www.zhihu.com";
+		}
+	}
+</script>

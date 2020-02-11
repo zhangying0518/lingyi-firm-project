@@ -1,0 +1,274 @@
+.body {
+	background: url('../../img/Publicimg/style/beijing.png');
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	font-family: "", "苹方";
+}
+
+/*IE滚动条颜色设置*/
+body {
+	scrollbar-arrow-color: #f2f2f3;
+	/*上下箭头*/
+	scrollbar-track-color: #ccc;
+	/*底层背景色*/
+	scrollbar-Shadow-color: #ff0c66;
+	/*滚动条边线色*/
+	scrollbar-face-color: #EF6C38;
+	/*滚动条前景色*/
+	scrollbar-Shadow-color: #ff0c66;
+	/*滚动条边线色*/
+	overflow-x: hidden;
+}
+
+/*chrome滚动条颜色设置*/
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+body::-webkit-scrollbar {
+	width: 7px;
+	height: 5px;
+	background-color: transparent;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+body::-webkit-scrollbar-track {
+	background-color: #fff;
+}
+
+/*定义滑块 内阴影+圆角*/
+body::-webkit-scrollbar-thumb {
+	background-color: #009b9a;
+}
+
+/*移动端*/
+
+/*PC端*/
+/*顶部*/
+.head {
+	height: 110px;
+	background-color: #f1f6fc
+}
+
+.gong_root_gao {
+	height: 194px;
+}
+
+.top_zuo {
+	float: left;
+}
+.top_zuo a:hover{
+	text-decoration: none;
+}
+.top_zuo span {
+	color: #009b9a;
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 110px;
+	padding-left: 40px;
+}
+
+.top_you {
+	float: right;
+	display: flex;
+	height: 110px;
+	align-items: center;
+}
+
+.top_you a {
+	display: inline-block;
+	width: 78px;
+	height: 78px
+}
+
+.top_you a img {
+	width: 100%;
+	height: 100%;
+}
+
+.top_you .top_you_img {
+	margin-right: 60px;
+}
+
+/*底部*/
+.root_left {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.root_left_zi {
+	line-height: 28px;
+	width:190px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.root_left_zi a {
+	color: #004f96;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.root_left_a {
+}
+
+.root_right {
+	position: relative;
+	display: flex;
+	justify-content: center;
+}
+
+.root_right_img {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 212px;
+}
+
+.root_right .root_right_img1 {
+}
+
+.root_di {
+	background-color: #a4b1bf;
+}
+
+.root_di_zi {
+	height: 46px;
+	line-height: 46px;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 0;
+}
+
+.root_di_zi p,.root_di_zi p a {
+	font-size: 14px;
+	color: #4c4948;
+}
+.root_di_zi p a:hover{
+	text-decoration: none;
+}
+.bottom_center_three>div {
+	float: left;
+}
+
+.bottom_center_img {
+	width: 48px;
+	height: 44px;
+	margin: auto;
+	margin-top: -30px;
+}
+
+.bottom_center {
+	position: relative;
+	display: flex;
+	justify-content: center;
+}
+
+.bottom_center_right {
+	margin-left: 20px
+}
+
+.bottom_center_three {
+	width: 400px;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.bottom_center_left_zi {
+	padding-top: 15px;
+}
+
+.bottom_center_left_zi a {
+	font-size: 16px;
+	color: #004f96;
+	display: block;
+	text-align: center;
+	font-weight: 600;
+}
+
+.bottom_center_left,
+.bottom_center_center,
+.bottom_center_right {
+	background-color: #ffffff;
+	width: 115px;
+	height: 80px;
+	position: relative;
+}
+
+/* 弹框 */
+.quick {
+	width: 446px;
+	height: 480px;
+	position: absolute;
+	left: -35px;
+	top: -499px;
+	border-radius: 10px;
+	display: none;
+	z-index: 9999999;
+	opacity:9999!important;
+}
+
+.quickWai {
+	position: relative;
+	border: 2px solid #009b9a;
+	height: 408px;
+	border-radius: 15px;
+	background: #fff;
+}
+
+.quickWai>.img1 {
+	position: absolute;
+	left: 73px;
+	top: 404px;
+}
+
+.quickWai>.img2 {
+	position: absolute;
+	left: 384px;
+	top: 19px;
+}
+
+.quickTop {
+	height: 75px;
+	border-radius: 11px 11px 0 0;
+	line-height: 75px;
+	background: #009b9a;
+	font-size: 28px;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+}
+
+.quickWai p {
+	font-size: 22px;
+	color: #009b9a;
+	font-weight: bold;
+	line-height: 30px;
+	text-align: center;
+}
+
+.quickWai p:nth-child(2) {
+	/* margin-top: 40px; */
+}
+
+.answer span {
+	border-radius: 12px;
+	padding: 4px 15px;
+	border: 1px solid #009b9a;
+	margin: 0 20px 20px;
+	display: inline-block;
+}
+
+/* 弹框结束 */
+@media only screen and (min-width: 1280px) {
+	.container {
+		width: 1200px;
+	}
+}
+
+/*监听是否为移动端，并自动跳转*/

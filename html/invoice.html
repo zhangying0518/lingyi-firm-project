@@ -1,0 +1,183 @@
+<div class="row" id="accordion">
+	<div class="col-sm-12 col-md-12 col-lg-12 invoiceTitle">
+		开票工具
+	</div>
+	<div class="col-sm-12 col-md-12 col-lg-12 invoiceMain">
+		<div class="invoiceInfo">发票信息</div>
+			<div id="invoiceForm" class="clearfix">
+				<fieldset>
+					<div class="invoiceSelect">
+						<span class="textOne">服务产品</span>
+						<select class="invoiceipt select" style="width: 300px;">
+							<!-- <option value="" disabled selected hidden>---请选择产品---</option>
+							<option value="Buga">Buga</option>
+							<option value="Baga">Baga</option>
+							<option value="Oi">Oi</option> -->
+						</select>
+						<span class="textOne marginLeft" for="neirong">补充内容</span>
+						<input type="text" id="neirong" name="neirong" class="invoiceipt" />
+					</div>
+					<div class="invoiceOrder">
+						<span class="textOne" for="haoma">订单号码</span>
+						<input type="text" id="haoma" name="haoma" class="invoiceipt" />
+						<span class="textOne marginLeft">发票金额</span>
+						<input type="text" id="jine" name="jine" class="invoiceipt" />
+					</div>
+					<div class="invoiceType">
+						<span style="margin-right: 3px;" class="textOne">企业类型</span>
+						<input value="小规模纳税人" class="checkBox" type="checkbox" />
+						<span style="margin:0 38px 0 10px;font-weight: 500;">小规模纳税人</span>
+						<input value="一般纳税人" class="checkBox" type="checkbox" />
+						<span style="margin-left: 10px;font-weight: 500;">一般纳税人</span>
+						<span style="margin-left: 38px;font-weight: 500;">(选项打勾✓)</span>
+					</div>
+					<div class="invoiceRise">
+						<span class="textOne">发票抬头</span>
+						<input type="text" id="taitou" name="taitou" class="invoiceipt" />
+					</div>
+					<div class="invoiceCode">
+						<span>统一社会信用代码</span>
+						<input type="text" id="daima" name="daima" class="invoiceipt" />
+					</div>
+					<div class="invoiceAdress">
+						<span class="textOne">开票地址</span>
+						<input type="text" id="dizhi" name="dizhi" placeholder="一般纳税人填写" class="invoiceipt" />
+					</div>
+					<div class="invoicePone">
+						<span class="textOne">注册电话</span>
+						<input type="text" id="dianhua" name="dianhua" placeholder="一般纳税人填写" class="invoiceipt" />
+					</div>
+					<div class="invoiceBank">
+						<span>开户行</span>
+						<input type="text" id="huhang" name="huhang" placeholder="一般纳税人填写" class="invoiceipt" />
+					</div>
+					<div class="invoiceNum">
+						<span class="textOne">开户账号</span>
+						<input type="text" id="zhanghao" name="zhanghao" placeholder="一般纳税人填写" class="invoiceipt" />
+					</div>
+					<div class="invoiceNmae">
+						<span>联系人姓名</span>
+						<input type="text" id="xingming" name="xingming" class="invoiceipt" />
+						<span class="lxLeft">联系人电话</span>
+						<input type="text" id="renhua" name="renhua" class="invoiceipt" />
+					</div>
+					<div class="invoiceEmail">
+						<span class="textOne">电子邮箱</span>
+						<input type="email" id="youxiang" name="youxiang" class="invoiceipt" />
+					</div>
+					<div class="invoiceSend">
+						<span>发票寄送地址</span>
+						<input type="text" id="songzhi" name="songzhi" class="invoiceipt" />
+					</div>
+					<div class="invoiceSubmit">
+						<input type="button" class="invoiceButton" onclick="check()" value="点击提交" />
+					</div>
+				</fieldset>
+			</div>
+		</div>
+</div>
+<script>
+	$(function() {
+		browserRedirect();
+		checkBox();
+		selectAjax();
+		// selectopt();
+	})
+	function selectAjax(){
+		var selectHtml = '';
+		$.AjaxGet({
+			url:'GetMenuTree',
+			success(res){
+				$.each(res,function(i,v){
+					// console.log(res[i].name)
+				selectHtml +=
+					`
+					<option value="${v.name}">${v.name}</option>
+					`
+					// console.log('v',v.name)
+				})
+				$('.select').html(selectHtml);
+			}
+		})
+	}
+	// function selectopt() {
+	// 	$("select").change(function() {
+	// 		var selectpt = $(this).find("option:checked").attr("value")
+	// 		alert(selectpt)
+	// 	});
+	// }
+
+	function check() {
+		var _this = this;
+		var selectpt = $(".invoiceipt").find("option:checked").val();
+		var neirong = $('input[name=neirong]').val(); //补充内容
+		var haoma = $('input[name=haoma]').val(); //订单号码
+		var jine = $('input[name=jine]').val(); //发票金额
+		var selectleng = $("input[type='checkbox']:checked").val(); //企业类型
+		var taitou = $('input[name=taitou]').val(); //发票抬头
+		var daima = $('input[name=daima]').val(); //统一社会信用代码
+		var dizhi = $('input[name=dizhi]').val(); //开票地址
+		var dianhua = $('input[name=dianhua]').val(); //注册电话
+		var huhang = $('input[name=huhang]').val(); //开户行
+		var zhanghao = $('input[name=zhanghao]').val(); //开户账号
+		var xingming = $('input[name=xingming]').val(); //联系人姓名
+		var renhua = $('input[name=renhua]').val(); //联系人电话
+		var youxiang = $('input[name=youxiang]').val(); //电子邮箱
+		var songzhi = $('input[name=songzhi]').val(); //发票寄送地址
+		var arr=[
+			{id:'Service',msg:'请选择服务产品',value:selectpt},
+			{id:'Supplement',msg:'请填写补充内容',value:neirong},
+			{id:'OrderNumber',msg:'请填写订单号码',value:haoma},
+			{id:'Money',msg:'请填写发票金额',value:jine},
+			{id:'TypesEnterprises',msg:'请填写选择企业类型',value:selectleng},
+			{id:'InvoiceRise',msg:'请填写发票抬头',value:taitou},
+			{id:'Credit',msg:'统一社会信用代码',value:daima},
+			{id:'BillingAddress',msg:'请填写开票地址',value:dizhi},
+			{id:'RegisteredTel',msg:'请填写注册电话',value:dianhua},
+			{id:'OpenAccount',msg:'请填写开户行',value:huhang},
+			{id:'Account',msg:'请填写开户账号',value:zhanghao},
+			{id:'ContactsTel',msg:'请填写正确的联系人电话',value:renhua,type:'isPhone'},
+			{id:'Contacts',msg:'请填写联系人姓名',value:xingming},
+			{id:'Email',msg:'请填写正确的电子邮箱',value:youxiang,type:'isEmail'},
+			{id:'MailAddress',msg:'请填写发票寄送地址',value:songzhi}
+		]
+		$.Vali(arr,function(obj){	
+			console.log('obj',obj);
+			$.AjaxPost({
+				url:'InvoiceSubmission',
+				data:obj,
+				success(res){
+					alert('提交成功！')
+					console.log('res',res)
+				},
+				error(res){
+					alert('网络出错误！请联系客服人员！')
+				}
+			})
+		})
+	}
+
+	function checkBox() {
+		$('.invoiceType').find('input[type=checkbox]').bind('click', function(e) {
+			// var selectche = $(this).val();
+			// alert(selectche)
+			if (this.checked) {
+				$(".invoiceType").find('input[type=checkbox]').not(this).attr("checked", false);
+			}
+		})	
+	}
+
+	function browserRedirect() {
+		var sUserAgent = navigator.userAgent.toLowerCase();
+		if (/ipad|iphone|midp|rv:1.2.3.4|ucweb|android|windows ce|windows mobile/.test(sUserAgent)) {
+			//跳转移动端页面
+			// alert('首页ipone端');
+			window.location.href = "http://www.baidu.com";
+		} else {
+			//跳转pc端页面
+			// alert('发票工具pc端');
+			// window.location.href="http://www.zhihu.com";
+			console.log('发票工具pc端')
+		}
+	}
+</script>

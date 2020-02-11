@@ -1,0 +1,211 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 col-lg-3 col-sm-3 gong_root_gao root_left">
+			<div class="root_left_zi">
+			</div>
+		</div>
+		<div class="col-md-6 col-lg-6 col-sm-6 gong_root_gao bottom_center">
+			<div class="bottom_center_three">
+			</div>
+		</div>
+		<div class="col-md-3 col-lg-3 col-sm-3 gong_root_gao root_right">
+			<div class="root_right_img">
+
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12 col-lg-12 col-sm-12 root_di">
+		<div class="container root_di_zi">
+			<p>Copyright©2019 All RightsReserved.&nbsp;&nbsp;&nbsp;&nbsp;企锵锵（上海）企业管理有限公司&nbsp;&nbsp;&nbsp;&nbsp;沪ICP备12457896号-1&nbsp;&nbsp;</p>
+		</div>
+	</div>
+</div>
+<style type="text/css">
+	.tklist {
+		padding: 20px;
+	}
+</style>
+<script>
+	$(function() {
+		$(".root_left_zi").click(function() {
+			sessionStorage.removeItem("ckMenu");
+		})
+		var hothtml = ""
+		$.AjaxGet({
+			url: 'HotMenu',
+			dataType: 'json',
+			success: function(res) {
+				var HotMenu = res.data;
+				var n1 = HotMenu[0].data;
+				var n2 = HotMenu[1].data;
+				var n3 = HotMenu[2].data;
+				var listn1 = n1.split("，")
+				var listn2 = n2.split("，")
+				var listn3 = n3.split("，")
+				hothtml +=
+					`
+					<div class="bottom_center_left  bottom_center_tip" >
+					    <div class="bottom_center_img">
+					        <img src="${HotMenu[0].icon}" />
+					    </div>
+					    <div class="bottom_center_left_zi">
+					        <a href="javacript:void(0);">${HotMenu[0].title}</a>
+					    </div>
+						<div class="quick">
+							<div class="quickWai">
+								<div class="quickTop">${HotMenu[0].title}</div>
+								<div class="listhtml tklist"></div>
+								<img src="../img/Publicimg/style/quickArrow.png" class="img1" />
+								<img src="../img/Publicimg/style/close.png" class="img2" />
+							</div>
+						</div>
+					</div>
+					<div class="bottom_center_center bottom_center_right bottom_center_tip">
+						<div class="bottom_center_img">
+						    <img src="${HotMenu[1].icon}" />
+						</div>
+						<div class="bottom_center_left_zi">
+						    <a href="javacript:void(0);">${HotMenu[1].title}</a>
+						</div>
+						<div class="quick">
+							<div class="quickWai">
+								<div class="quickTop">${HotMenu[1].title}</div>
+								<div class="listhtml2 tklist"></div>
+								<img src="../img/Publicimg/style/quickArrow.png" class="img1" />
+								<img src="../img/Publicimg/style/close.png" class="img2" />
+							</div>
+						</div>
+					</div>
+					<div class="bottom_center_right bottom_center_right bottom_center_tip">
+						<div class="bottom_center_img">
+						    <img src="${HotMenu[2].icon}" />
+						</div>
+						<div class="bottom_center_left_zi">
+						    <a href="javacript:void(0);">${HotMenu[2].title}</a>
+						</div>
+						<div class="quick">
+							<div class="quickWai">
+								<div class="quickTop">${HotMenu[2].title}</div>
+								<div class="listhtml3 tklist"></div>
+								<img src="../img/Publicimg/style/quickArrow.png" class="img1" />
+								<img src="../img/Publicimg/style/close.png" class="img2" />
+							</div>
+						</div>
+					</div>
+					`
+
+				$(".bottom_center_three").html(hothtml);
+				$(".bottom_center_left_zi a").each(function() {
+					$(this).html($(this).text().replace(new RegExp("，", "gm"), '<br/>'))
+				});
+
+				var listhtml1 = "";
+				listhtml1 +=
+					`
+								<p>${listn1[0]}</p>
+								<p class="answer"><span>${listn1[1]}</span></p>
+								<p>${listn1[2]}</p>
+								<p class="answer"><span>${listn1[3]}</span></p>
+						`
+				$(".listhtml").html(listhtml1)
+
+				var listhtml2 = "";
+				listhtml2 +=
+					`
+								<p>${listn2[0]}</p>
+								<p class="answer"><span>${listn2[1]}</span></p>
+								<p></p>
+								<p class="answer"><span>${listn2[2]}</span></p>
+						`
+				$(".listhtml2").html(listhtml2)
+
+				var listhtml3 = "";
+				listhtml3 +=
+					`
+								<p>${listn3[0]}</p>
+								<p class="answer"><span>${listn3[1]}</span></p>
+								<p>${listn3[2]}</p>
+								<p class="answer"><span>${listn3[3]}</span></p>
+						`
+				$(".listhtml3").html(listhtml3)
+
+
+			}
+		})
+		var catelist = "";
+		var menuNum = [{
+			lj: 'm1'
+		}, {
+			lj: 'm2'
+		}, {
+			lj: 'm3'
+		}, {
+			lj: 'm4'
+		}, {
+			lj: 'm5'
+		}, {
+			lj: 'm6'
+		}]
+		$.AjaxGet({
+			url:'GetMenuCategoryList',
+			success: function(res) {
+				var ctlist = res.data
+				catelist +=
+					`
+							 <a class="root_left_a" href="InsidePages.html?menu=${menuNum[0].lj}">${ctlist[0].name}</a>
+							 <a class="root_left_a" href="InsidePages.html?menu=${menuNum[1].lj}">${ctlist[1].name}</a>
+							 <a class="root_left_a" href="InsidePages.html?menu=${menuNum[2].lj}">${ctlist[2].name}</a>
+							 <a class="root_left_a" href="InsidePages.html?menu=${menuNum[3].lj}">${ctlist[3].name}</a>
+							 <a class="root_left_a" href="InsidePages.html?menu=${menuNum[4].lj}">${ctlist[4].name}</a>
+							 <a class="root_left_a" href="InsidePages.html?menu=${menuNum[5].lj}">${ctlist[5].name}</a>
+						`
+
+				$(".root_left_zi").html(catelist)
+			}
+		})
+		var beianhtml = "";
+		var tophtml = "";
+		var bottomimg = "";
+		$.AjaxGet({
+			url:'configure',
+			success: function(res) {
+				var beian = res.data.recordno;
+				var name = res.data.name;
+				var beianUrl = res.data.recordnoUrl;
+				var top = res.data.phone;
+				var conimg = res.data.csQrcode;
+				var bottoimg = res.data.wxQrcode;
+				var topconimg = conimg.split("，")
+				beianhtml +=
+					`
+					<p>Copyright©2019 All RightsReserved.&nbsp;&nbsp;&nbsp;&nbsp;${name}&nbsp;&nbsp;&nbsp;&nbsp;<a href="${beianUrl}">${beian}</a>&nbsp;&nbsp;<a href="http://www.lewebsite.cn">技术支持：领网络</a></p>
+						`
+				tophtml +=
+					`
+					<div class="kefulogo" style="display: flex;margin-right: 40px;">
+						<img style="height: 44px; width: 43px;"  src="../img/Pageimg/index/kefulogo.png"/>
+						<div class="kefupone" style="margin-left:12px;">
+							<span style="color:#009b9a;font-size:16px;">${top}</span>
+						</div>
+					</div>
+					<a >
+					    <img src="${weburl}${bottoimg}" />
+					</a>
+						`
+				bottomimg +=
+					`
+				<img src= "${weburl}${bottoimg}" />
+				<img class="root_right_img1" src=  "${weburl}${topconimg[0]}" />
+					`
+				$(".root_right_img").html(bottomimg)
+				$(".root_di_zi").html(beianhtml)
+				$(".top_you").html(tophtml)
+				$(".kefupone span").each(function() {
+					$(this).html($(this).text().replace(new RegExp("，", "gm"), '<br/>'))
+				});
+			}
+		})
+	})
+</script>

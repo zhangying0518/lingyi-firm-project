@@ -1,0 +1,125 @@
+
+.body{
+	font-family: "苹方";
+}
+/*上边内容*/
+.content_top {
+	height: 80px;
+	line-height: 80px;
+}
+
+.content_top ul li {
+	float: left;
+	padding-left: 10px;
+	font-size: 16px;
+	color: #999999;
+}
+
+.content_top ul li a {
+	color: #999999;
+}
+
+.content_top ul li:nth-child(1) {
+	padding-left: 0;
+}
+
+/*右边内容*/
+.content_right {
+	color: #8c8c8c;
+	overflow: hidden;
+	background-color:#ffffff;
+    overflow: hidden;
+	margin-left: 16px;
+}
+/* .firm-title{
+	font-size: 25px;
+	text-align: center;
+	margin: 50px 50px 30px;
+	font-weight: 600;
+	color: #009b9a;
+}
+.content_right>p{
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 30px;
+	padding: 0 30px;
+	color: #8c8c8c;
+	letter-spacing: 1px;
+	margin-bottom: 40px;
+}
+.content_right>p:last-child{
+	padding-bottom: 60px;
+}
+.content_right>p>span{
+	color: #009b9a;
+} */
+/*左边内容*/
+.content_left_row div {
+	height: 80px;
+	width: 180px; 
+	line-height: 80px;
+	text-align: center;
+	background-color: #ffffff;
+	border-bottom: 1px solid #dddddd;
+}
+
+.content_left_row div a {
+	font-size: 24px;
+	color: #999999;
+	font-weight: bold;
+}
+
+.content_left_row div a:hover {
+	text-decoration: none;
+}
+
+.content_left_row div a img {
+	margin-top: -5px;
+}
+
+.content_left_zi {
+	border-bottom: 0px solid #999999 !important;
+}
+/*点击的时候添加类*/
+.content_left_bei {
+	background: url('../../img/Pageimg/InsidePages/beijing.png')no-repeat center;
+	background-size: 100% 100%;
+	border-bottom: 1px solid #999999;
+}
+.content_left_bei .grayPic{display: none;}
+.content_left_bei .whitePic{display: inline-block;}
+.content_left_bei a{
+	color: #ffffff!important;
+	text-decoration: none;
+}
+.white{
+	color: white;
+}
+.layui-show{
+	display: block;
+}
+/* 换图片 */
+/* .grayPic{
+	display: block;
+} */
+.whitePic{
+	display: none;
+}
+/*改变col-1和col-8属性*/
+@media (min-width:1200px) {
+	.col-lg-1 {
+		width: 0%;
+	}
+}
+
+@media (min-width:768px) {
+	.col-lg-1 {
+		width: 0%;
+	}
+}
+
+@media (min-width:992px) {
+	.col-md-9 {
+		width: 80%;
+	}
+}

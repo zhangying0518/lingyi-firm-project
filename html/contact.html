@@ -1,0 +1,79 @@
+<div class="row" id="accordion">
+	<div class="col-lg-12 col-md-12 col-sm-12 contactWay">
+		<div class="row">
+			<div class="col-lg-3 col-md-3 col-sm-3 pone">
+				<!-- <p>联系方式:</p>
+				<p>客服热线: 14785992516</p>
+				<p>投诉热线: 14785992516</p> -->
+			</div>
+			<div class="col-lg-5 col-md-5 col-sm-5">
+				<p>公司地址:</p>
+				<p>上海市静安区完航渡路888号开开大厦15楼K室</p>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 contactCode">
+				
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-12 col-md-12 col-sm-12 contactMap">
+		<div id="container">
+
+		</div>
+	</div>
+</div>
+<script>
+	var contaHtml = "";
+	var contapone = "";
+	$.AjaxGet({
+		url:'contact ',
+		success: function(res) {
+			console.log('联系方式', res)
+			var contpone = res.data.phone;
+			var conpone = contpone.split("，");
+			var conimg = res.data.csQrcode;
+			var topconimg = conimg.split("，");
+			// console.log(topconimg,'topconimg')
+			var bottoimg = res.data.wxQrcode;
+			// console.log(bottoimg,'bottoimg')
+			// var name = res.data.name
+			// var introduce = res.data.introduce
+			contaHtml +=
+				`
+				<div>
+					<div class="tu"><img src="${weburl}${topconimg[0]}" /></div>
+					<p>公司公众号</p>
+				</div>
+				<div>
+					<div class="tu"><img src="${weburl}${topconimg[1]}" /></div>
+					<p>客服1</p>
+				</div>
+				<div>
+					<div class="tu"><img src="${weburl}${bottoimg}" /></div>
+					<p>客服2</p>
+				</div>
+				`
+			contapone +=
+				`
+				<p>联系方式:</p>
+				<p>客服热线: ${conpone[0]}</p>
+				<p>投诉热线: ${conpone[1]}</p>
+				`
+			$(".pone").html(contapone);
+			$(".contactCode").html(contaHtml);	
+			browserRedirect()
+		}
+	})
+	function browserRedirect() {
+		var sUserAgent = navigator.userAgent.toLowerCase();
+		if (/ipad|iphone|midp|rv:1.2.3.4|ucweb|android|windows ce|windows mobile/.test(sUserAgent)) {
+			//跳转移动端页面
+			// alert('首页ipone端');
+			window.location.href="http://www.baidu.com";
+		} else {
+			//跳转pc端页面
+			console.log('联系方式pc端');
+			// window.location.href="http://www.zhihu.com";
+		}
+	}
+</script>
+<!-- <script src="../js/Pagejs/contact.js"></script> -->

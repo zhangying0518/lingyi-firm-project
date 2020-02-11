@@ -1,0 +1,95 @@
+.invoiceTitle {
+	height: 100px;
+	line-height: 100px;
+	background: url("../../img/Pageimg/InsidePages/beijing.png") no-repeat;
+	background-size: 100% 100%;
+	font-size: 30px;
+	color: #ffffff;
+	font-weight: bold;
+	padding-left: 45px;
+}
+
+.invoiceMain {
+	padding: 0 55px;
+}
+
+.clearfix span {
+	font-size: 18px;
+	color: #4b4b4b;
+}
+
+.invoiceInfo {
+	font-size: 22px;
+	color: #029fae;
+	margin: 36px 0 0 0;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+
+.invoiceipt {
+	text-indent: 10px;
+	border-style: none;
+	border: 1px solid #dddddd;
+	border-radius: 4px;
+	height: 36px;
+}
+
+#invoiceForm div {
+	margin-top: 20px;
+}
+.invoiceSelect input,.invoiceOrder input,.invoiceNmae input{
+	/* border: 1px solid red; */
+	width: 298.5px;
+}
+.checkBox {
+	/* height: 36px;
+	width: 36px; */
+}
+.invoiceRise input,.invoiceAdress input,.invoicePone input,.invoiceBank input,.invoiceNum input,.invoiceEmail input{
+	/* border: 1px solid blue; */
+	width: 720px;
+}
+.invoiceType{
+	display: flex;
+	align-items: center;
+}
+.invoiceCode input{
+	width: 650px;
+	/* border: 1px solid pink; */
+}
+.invoiceSend input{
+	/* border: 1px solid black; */
+	width: 680px ;
+}
+.invoiceBank span{
+	letter-spacing: 13px;
+}
+.invoiceBank input{
+	margin-left: -13px;
+}
+.textOne,.invoiceSend span{
+	letter-spacing: 2px;
+}
+.invoiceCode span{
+	letter-spacing: 0.7px;
+}
+.marginLeft{
+	margin-left: 35px;
+}
+.lxLeft{
+	margin-left: 13px;
+}
+
+.invoiceButton{
+	margin: 8px 0 45px 0;
+	margin-right: 5%;
+	float: right;
+	background: #009b9a;
+	color: white;
+	border-style: none;
+	font-size: 18px;
+	border-radius: 8px;
+	height: 37px;
+	width: 159px;
+}
+
